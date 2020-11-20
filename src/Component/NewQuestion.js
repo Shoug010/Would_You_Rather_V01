@@ -12,7 +12,6 @@ class NewQuestion extends Component{
     componentDidMount() {
         this.props.dispatch(hundleInitialQustions())
         this.props.dispatch(handleInitialuser())
-
     }
     render(){
         const {user} = this.props
@@ -30,10 +29,8 @@ class NewQuestion extends Component{
             }
             return user1
         })
-       
-
         return (<div>
-            { author===" " || author===null ?(<div> Please Log in First :)
+            { author==="" || author===null ?(<div> 
                 <div className='login'>
                     <h1>Welcome to 'Would you rather' game </h1>
                     <p> please Select a user :</p>
@@ -48,6 +45,9 @@ class NewQuestion extends Component{
                     {this.props.user.map((id) => (
                     <option value={id.id} key={id.id}>{id.name}</option>
                     ))} </select>
+                    <br></br>
+                    <br></br>
+                    <button>< Link to='/home'> home</Link></button>
                 </div>
             </div>):(
             <div className='center'>
