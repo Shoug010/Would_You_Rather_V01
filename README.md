@@ -12,7 +12,7 @@ So, if you have not set up them yet make sure to do before starting
 
 ### First: clone the App, you can do it with command line 
 ```
-$ git clone https://github.com/Shoug010/MyReadV0.1.git
+$ git clone https://github.com/Shoug010/Would_You_Rather_V01.git
 ```
 
 ### Second: in the command line open the app file and Install the npm 
