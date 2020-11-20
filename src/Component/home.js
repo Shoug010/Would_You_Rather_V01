@@ -9,7 +9,7 @@ import { handleInitialuser } from '../actions/shared'
 
 class home extends Component{
     state={
-        Click : 0
+        Answered : false
     }
     componentDidMount() {
         this.props.dispatch(hundleInitialQustions())
@@ -76,9 +76,9 @@ class home extends Component{
                         <li style={{ marginRight: '2%'}}><p>Hello {user1.name}</p></li>
                     </ul>
                     <div className='content'>
-                        <button onClick={(()=>this.setState({ Click: 0}))}>Unanswered questions</button>
-                        <button onClick={(()=>this.setState({ Click: 1}))}>Answered questions</button>
-                        {this.state.Click === 1 ? (<div> {
+                        <button onClick={(()=>this.setState({ Answered: false}))}>Unanswered questions</button>
+                        <button onClick={(()=>this.setState({ Answered: true}))}>Answered questions</button>
+                        {this.state.Answered === true ? (<div> {
                             byDateA.map((A)=>{
                                 user.map((u)=>{
                                     if(A.author===u.id){
