@@ -3,17 +3,18 @@ import { Link  } from 'react-router-dom'
 import '../style.css'
 import { connect } from 'react-redux'
 import { handleInitialuser } from '../actions/shared'
+import {setAuthedUser} from '../actions/authedUser'
 
 class Leader extends Component{
     componentDidMount() {
         this.props.dispatch(handleInitialuser())
-        console.log(this.props.questions);
     }
 
     render(){
         const {author} = this.props
         const {user} = this.props
         var user1={}
+        var selected = ""
         user.map((u)=>{
             if(u.id===author){
                 user1 =u
@@ -27,7 +28,24 @@ class Leader extends Component{
         });
 
         return (<div>
-            { author===" " || author===null ?(<div> <p>Please login first</p> <br/><button>< Link to='/'>login</Link></button></div>):(
+            { author==="" || author===null ?(<div>
+                <div className='login'>
+                    <h1>Welcome to 'Would you rather' game </h1>
+                    <p> please Select a user :</p>
+                    <select defaultValue="select user"onChange={(event)=>{
+                    selected = " "
+                    selected = event.target.value
+                    this.props.dispatch(setAuthedUser(selected))
+                    console.log(selected);
+                    }
+                    }>
+                    <option value ="select user" disabled > select user...</option>
+                    {this.props.user.map((id) => (
+                    <option value={id.id} key={id.id}>{id.name}</option>
+                    ))} </select>
+                </div>
+    )
+            </div>):(
             <div className='center'>
                 <ul>
                     <li>< Link to='/home'> home </Link></li>

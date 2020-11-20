@@ -4,6 +4,8 @@ import '../style.css'
 import { connect } from 'react-redux'
 import { hundleInitialQustions } from '../actions/shared'
 import {setPoll} from '../actions/Poll'
+import {setAuthedUser} from '../actions/authedUser'
+import { handleInitialuser } from '../actions/shared'
 
 class home extends Component{
     state={
@@ -11,6 +13,8 @@ class home extends Component{
     }
     componentDidMount() {
         this.props.dispatch(hundleInitialQustions())
+        this.props.dispatch(handleInitialuser())
+
     }
     render(){
         const { questions } = this.props
@@ -19,6 +23,7 @@ class home extends Component{
         var user1 ={}
         var Unanswered=[]
         var Answered=[]
+        var selected = ""
 
         questions.map((q)=>{
             user.map((u)=>{
@@ -44,7 +49,23 @@ class home extends Component{
 
         return (
             <div>
-                { author===" " || author===null ?(<div> <p>Please login first</p> <br/><button>< Link to='/'>login</Link></button></div>):(
+                { author===" " || author===null ?(<div>
+                    <div className='login'>
+                        <h1>Welcome to 'Would you rather' game </h1>
+                        <p> please Select a user :</p>
+                        <select defaultValue="select user"onChange={(event)=>{
+                        selected = " "
+                        selected = event.target.value
+                        this.props.dispatch(setAuthedUser(selected))
+                        console.log(selected);
+                        }
+                        }>
+                        <option value ="select user" disabled > select user...</option>
+                        {this.props.user.map((id) => (
+                        <option value={id.id} key={id.id}>{id.name}</option>
+                        ))} </select>
+                    </div>
+                </div>):(
                 <div className='center'>
                     <ul>
                         <li>< Link to='/home'> home </Link></li>

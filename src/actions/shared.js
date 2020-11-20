@@ -4,10 +4,10 @@ import {setAuthedUser} from './authedUser'
 import {receiveUsers} from './users'
 import {receiveQuestions} from './Questions'
 import {setPoll} from './Poll'
-const poll = {}
 
 export function handleInitialData (){
     const id=""
+    const poll = {}
     return(dispatch)=>{
         return  _getUsers()
         .then((users) => {
