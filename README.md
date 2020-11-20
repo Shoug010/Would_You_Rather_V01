@@ -25,22 +25,22 @@ $ npm start
 ```
 Then the browser will open the App for you
  
- ![alt text](https://github.com/Shoug010/MyReadV0.1/blob/main/MyApp.png)
 
 ## How to Use the App:
 In Would you rather Game we have 5 pages 
+
+### login page: 
+On this page, you will be asked to log into your account then take you to the home page
 
 ### Hame page: 
 On this page, you have two categories, one for the answered question and one for the unanswered question,
 In each poll, you have basic information and a button to link you to the pool to answer the question
 
- ![alt text](https://github.com/Shoug010/MyReadV0.1/blob/main/List%20Books.png)
 
 
 ### new Question: 
 On this page, you can add new question 
 
-![alt text](https://github.com/Shoug010/MyReadV0.1/blob/main/Search.png)
 
 
 ### leader page: 
