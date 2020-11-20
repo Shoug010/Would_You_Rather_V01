@@ -11,7 +11,6 @@ class home extends Component{
     }
     componentDidMount() {
         this.props.dispatch(hundleInitialQustions())
-        console.log(this.props.questions);
     }
     render(){
         const { questions } = this.props
@@ -21,11 +20,6 @@ class home extends Component{
         var Unanswered=[]
         var Answered=[]
 
-        console.log(" home compocnen");
-        console.log(questions);
-        console.log(author);
-        console.log("user");
-        console.log(user);
         questions.map((q)=>{
             user.map((u)=>{
                 if(u.id===author){
@@ -114,7 +108,6 @@ class home extends Component{
     }
 }
 function mapStateToProps (state) {
-    console.log('map is called');
     return {
         user: Object.values(state.user),
         questions: Object.values(state.questions),
