@@ -48,7 +48,7 @@ class home extends Component{
                 <div className='center'>
                     <ul>
                         <li>< Link to='/home'> home </Link></li>
-                        <li>< Link to='/newQustion'> New Qustion </Link></li> 
+                        <li>< Link to='/add'> New Qustion </Link></li> 
                         <li>< Link to='/leader'> leader </Link></li>
                         <li>< Link to='/'> logout </Link></li>
                         <li ><img alt="img" src={user1.avatarURL}></img></li> 

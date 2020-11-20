@@ -25,6 +25,7 @@ class Poll extends Component{
 
         var percentage=0
         var percentage1=0
+        var Urlfouser = ""
 
         var user1={}
         var countOne=0
@@ -32,6 +33,9 @@ class Poll extends Component{
         var users =0
 
         user.map((u)=>{
+            if(u.id==poll.author){
+                Urlfouser=u.avatarURL
+            }
             if(u.id===author){
                 user1 =u
             }
@@ -61,14 +65,14 @@ class Poll extends Component{
                         ):(<div>  
                             <ul>
                                 <li>< Link to='/home'> home </Link></li>
-                                <li>< Link to='/newQustion'> New Qustion </Link></li> 
+                                <li>< Link to='/add'> New Qustion </Link></li> 
                                 <li>< Link to='/leader'> leader </Link></li>
                                 <li>< Link to='/'> logout </Link></li>
                                 <li ><img alt="img" src={user1.avatarURL} ></img></li> 
                                 <li style={{ marginRight: '2%'}}><p>Hello {user1.name}</p></li>
                             </ul>
                             <div className='Poll'>  
-                                <img alt="" src={user1.avatarURL} ></img>
+                                <img alt="" src={Urlfouser} ></img>
                                 <div className='PollBoxInfo' >
                                     <p>{ user1.author} asks:</p>
                                     <p>Would you rather </p>
